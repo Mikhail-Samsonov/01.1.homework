@@ -2,31 +2,27 @@ cmake_minimum_required(VERSION 3.10)
 
 project(Library VERSION ${PROJECT_VESRION})
 
-configure_file(
-        version.h.in 
+configure_file(version.h.in
         ${CMAKE_CURRENT_BINARY_DIR}/version.h
-)
+        )
 
 add_library(lib STATIC lib.cpp lib.h)
 
-set_target_properties(
-        lib PROPERTIES
+set_target_properties(lib PROPERTIES
         CXX_STANDARD 17
         CXX_STANDARD_REQUIRED ON
-)
+        )
 
-target_include_directories(
-        lib 
-        PRIVATE 
+target_include_directories(lib PRIVATE
         ${CMAKE_CURRENT_BINARY_DIR}
-)
+        )
 
 if (MSVC)
     target_compile_options(lib PRIVATE
-        /W4
-    )
+            /W4
+            )
 else ()
     target_compile_options(lib PRIVATE
-        -Wall -Wextra -pedantic -Werror
-    )
-endif()
+            -Wall -Wextra -pedantic -Werror
+            )
+endif ()

@@ -13,19 +13,17 @@ set_target_properties(
 target_include_directories(
         helloworld
         PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/../lib
+        ${CMAKE_SOURCE_DIR}/lib
 )
 
 target_link_libraries(helloworld lib)
 
-install(TARGETS helloworld RUNTIME DESTINATION bin)
-
 if (MSVC)
     target_compile_options(helloworld PRIVATE
-        /W4
-    )
+            /W4
+            )
 else ()
     target_compile_options(helloworld PRIVATE
-        -Wall -Wextra -pedantic -Werror
-    )
+            -Wall -Wextra -pedantic -Werror
+            )
 endif()
