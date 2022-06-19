@@ -22,7 +22,7 @@ jobs:
 #          sudo apt-get install build-essential
       - name: Project build
         run: |
-          cmake . -DPATCH_VERSION=${{ github.run_number }}
+          cmake . -DPATCH_VERSION=${{ github.run_number }} -DCMAKE_BUILD_TYPE=Release
           cmake --build .
           cmake --build . --target test
           cmake --build . --target package
