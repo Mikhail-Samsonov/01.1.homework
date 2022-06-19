@@ -14,12 +14,12 @@ jobs:
         with:
           submodules: true
       - name: Install conan
-          run: |
-            sudo apt install python3-pip
-            sudo pip install conan
+        run: |
+          sudo apt install python3-pip
+          sudo pip install conan
 #      - name: Install build-essential
-#          run: |
-#            sudo apt-get install build-essential
+#        run: |
+#          sudo apt-get install build-essential
       - name: Project build
         run: |
           cmake . -DPATCH_VERSION=${{ github.run_number }}
